@@ -1,3 +1,54 @@
-include latex.gitignore
-include python.gitignore
-include other.gitignore
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+# LaTeX generated files
+*.pdf
+*.dvi
+*.ps
+
+# LaTeX editor files
+*.swp
+*.bak
+*.bak~
+*.backup
+*.sav
+*.wmf
+*.synctex(busy)
+
+# Other
+.DS_Store
+Thumbs.db
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development settings
+env/
+venv/
+.vscode/
+.idea/
+
+# Build files
+dist/
+build/
+*.egg-info/
+
+# Database files
+*.sqlite3
+db.sqlite3
+
+# Log files
+*.log
+
+# Compiled Python files
+*.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
