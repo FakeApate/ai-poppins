@@ -1,6 +1,7 @@
-# Project Name
+# AI Poppins
 
-A brief description of the project.
+This project aims to create a personal organizer application that allows users to manage their work and household tasks in one central location.
+Furthermore, in a second step. An AI will be trained to optimze and help the User doing their tasks.
 
 ## Installation
 
@@ -24,5 +25,4 @@ A list of any known issues or limitations with the project, and guidance on how 
 
 ## License
 
-A license that specifies how others can use, modify, and distribute your project.
-
+This project is licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file for details.
