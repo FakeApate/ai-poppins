@@ -1,0 +1,3 @@
+include latex.gitignore
+include python.gitignore
+include other.gitignore
