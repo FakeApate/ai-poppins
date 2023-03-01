@@ -34,6 +34,8 @@ env/
 venv/
 .vscode/
 .idea/
+*.env
+*.env.*
 
 # Build files
 dist/
@@ -43,12 +45,15 @@ build/
 # Database files
 *.sqlite3
 db.sqlite3
+*.db
 
 # Log files
 *.log
 
 # Compiled Python files
 *.pyc
+*.pyo
+*.pyd
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
