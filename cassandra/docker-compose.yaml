@@ -1,0 +1,9 @@
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    volumes:
+      - cassandra:/var/lib/cassandra
+volumes:
+  cassandra:
+    driver: default
