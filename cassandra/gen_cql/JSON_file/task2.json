@@ -1,0 +1,22 @@
+{
+    "name": "Fix Mobile App Bug",
+    "description": "Fix the bug that causes the app to crash on startup",
+    "category": "Development",
+    "start_date": "2023-04-19T10:00:00Z",
+    "due_date": "2023-04-30T23:59:59Z",
+    "priority": 10,
+    "repeating": null,
+    "data": [
+      {
+        "data_type": "Bug Report",
+        "data_value": {
+          "steps_to_reproduce": [
+            "Launch the app",
+            "Observe the crash"
+          ],
+          "error_message": "Fatal Exception: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.myapp/com.example.myapp.MainActivity}: java.lang.NullPointerException"
+        }
+      }
+    ]
+  }
+  

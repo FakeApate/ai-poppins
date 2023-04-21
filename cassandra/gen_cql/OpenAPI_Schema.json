@@ -1,0 +1,425 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AI Poppins API",
+    "description": "This API provides access to the data from AI-Poppings",
+    "contact": {
+      "name": "Samuel Imboden",
+      "email": "imbos@pm.me"
+    },
+    "license": {
+      "name": "License Terms",
+      "url": "https://hackolade.com/eulas.html"
+    },
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "https://bbf4a695-331f-48ec-a0b3-63bb9e200d1a-europe-west1.apps.astra.datastax.com/api/rest/v2/aipoppins"
+    }
+  ],
+  "paths": {
+    "/tasks": {
+      "post": {
+        "tags": [
+          "Entity resource"
+        ],
+        "summary": "Create entity.",
+        "description": "Create a new entity resource.",
+        "requestBody": {
+          "description": "Required input.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/task"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "$ref": "#/components/responses/task_-_Created"
+          },
+          "400": {
+            "$ref": "#/components/responses/Bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/Not_found"
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/tasks/{name}/{repeating}": {
+      "get": {
+        "tags": [
+          "Entity resource"
+        ],
+        "summary": "Retrieve entity.",
+        "description": "Retrieve all the data for the template resource.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The id of the template to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repeating",
+            "in": "path",
+            "description": "desc",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_-_OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/Not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/Internal_server_error"
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Entity resource"
+        ],
+        "summary": "Create or Update entity.",
+        "description": "Create a new or update an existing template resource.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The id of the template to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repeating",
+            "in": "path",
+            "description": "desc",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Required input.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/task"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/task_-_OK"
+          },
+          "201": {
+            "$ref": "#/components/responses/task_-_Created"
+          },
+          "400": {
+            "$ref": "#/components/responses/Bad_request"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/Not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/Internal_server_error"
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Entity resource"
+        ],
+        "summary": "Delete entity.",
+        "description": "Delete the template resource.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The id of the template to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "repeating",
+            "in": "path",
+            "description": "desc",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "$ref": "#/components/responses/No_content"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/Not_found"
+          },
+          "500": {
+            "$ref": "#/components/responses/Internal_server_error"
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-cassandra-token"
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Error code",
+            "example": "500"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the error",
+            "example": "A downstream system is not responding correctly."
+          }
+        }
+      },
+      "task": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "repeating": {
+            "type": "string"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "data_type": {
+                  "type": "string"
+                },
+                "data_value": {
+                  "type": "object",
+                  "nullable": false
+                }
+              },
+              "nullable": false
+            },
+            "nullable": false
+          }
+        },
+        "additionalProperties": true,
+        "nullable": false
+      }
+    },
+    "responses": {
+      "No_content": {
+        "description": ""
+      },
+      "Bad_request": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Error": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Error": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Error": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Not_found": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Error": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Internal_server_error": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Error": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "task_-_OK": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "$ref": "#/components/schemas/task"
+                }
+              }
+            }
+          }
+        }
+      },
+      "task_-_Created": {
+        "description": "",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "$ref": "#/components/schemas/task"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Entity resource template",
+      "description": "CRUD to manage the Entity resources."
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}

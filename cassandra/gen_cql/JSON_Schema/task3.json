@@ -1,0 +1,49 @@
+{
+  "task": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string"
+      },
+      "start_date": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "due_date": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "priority": {
+        "type": "integer"
+      },
+      "repeating": {
+        "type": "string"
+      },
+      "data": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "data_type": {
+              "type": "string"
+            },
+            "data_value": {
+              "type": "object",
+              "nullable": false
+            }
+          },
+          "nullable": false
+        },
+        "nullable": false
+      }
+    },
+    "additionalProperties": true,
+    "nullable": false
+  }
+}

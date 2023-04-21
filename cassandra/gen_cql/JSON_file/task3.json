@@ -1,0 +1,31 @@
+{
+    "name": "Client Meeting Presentation",
+    "description": "Prepare a presentation to showcase the progress of the project to the client",
+    "category": "Presentation",
+    "start_date": "2023-04-19T14:00:00Z",
+    "due_date": "2023-05-03T10:00:00Z",
+    "priority": 5,
+    "repeating": null,
+    "data": [
+      {
+        "data_type": "Presentation Data",
+        "data_value": {
+          "slides": [
+            {
+              "title": "Introduction",
+              "content": "Welcome to our progress presentation for project X."
+            },
+            {
+              "title": "Project Overview",
+              "content": "This slide shows an overview of the project."
+            },
+            {
+              "title": "Milestones",
+              "content": "This slide shows the milestones achieved so far."
+            }
+          ]
+        }
+      }
+    ]
+  }
+  

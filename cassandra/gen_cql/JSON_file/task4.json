@@ -1,0 +1,28 @@
+{
+    "name": "Schedule Marketing Meeting",
+    "description": "Schedule a meeting with the marketing team to discuss the new campaign",
+    "category": "Meeting",
+    "start_date": "2023-04-19T16:00:00Z",
+    "due_date": "2023-04-22T10:00:00Z",
+    "priority": 2,
+    "repeating": null,
+    "data": [
+      {
+        "data_type": "Participant List",
+        "data_value": {
+          "attendees": [
+            {
+              "name": "John Doe",
+              "email": "johndoe@example.com"
+            },
+            {
+              "name": "Jane Smith",
+              "email": "janesmith@example.com"
+            }
+          ],
+          "location": "Conference Room A"
+        }
+      }
+    ]
+  }
+  

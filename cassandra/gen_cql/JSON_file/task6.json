@@ -1,0 +1,21 @@
+{
+    "name": "Organize Team-Building Event",
+    "description": "Organize a team-building event for the company",
+    "category": "Event Planning",
+    "start_date": "2023-04-21T10:00:00Z",
+    "due_date": "2023-06-01T23:59:59Z",
+    "priority": 3,
+    "repeating": null,
+    "data": [
+      {
+        "data_type": "Event Details",
+        "data_value": {
+          "event_name": "Team-Building Event",
+          "location": "Central Park",
+          "date_time": "2023-06-01T14:00:00Z",
+          "description": "This event will include team-building activities and a picnic lunch."
+        }
+      }
+    ]
+  }
+  
