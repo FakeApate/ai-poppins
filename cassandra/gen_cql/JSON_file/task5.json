@@ -1,0 +1,19 @@
+{
+    "name": "Write Blog Post",
+    "description": "Write a blog post on the latest industry trends",
+    "category": "Content Creation",
+    "start_date": "2023-04-20T09:00:00Z",
+    "due_date": "2023-05-10T17:00:00Z",
+    "priority": 6,
+    "repeating": null,
+    "data": [
+      {
+        "data_type": "Blog Post",
+        "data_value": {
+          "title": "The Latest Industry Trends",
+          "content": "This blog post will cover the latest trends in the industry, including X, Y, and Z."
+        }
+      }
+    ]
+  }
+  
