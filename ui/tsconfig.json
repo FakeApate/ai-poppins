@@ -1,0 +1,11 @@
+{
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        "module": "commonjs",
+        "outDir": "build/"
+    },
+    "exclude": [
+        "node_modules",
+        "build"
+    ]
+}
