@@ -1,11 +1,14 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+const { app, BrowserWindow } = require('electron')
 
-import './assets/main.css'
+const createWindow = () => {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+  })
 
-const app = createApp(App)
+  win.loadFile('index.html')
+}
 
-app.use(router)
-
-app.mount('#app')
+app.whenReady().then(() => {
+  createWindow()
+})
