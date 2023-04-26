@@ -1,11 +1,14 @@
 {
-    "include": ["src/**/*"],
-    "compilerOptions": {
-        "module": "commonjs",
-        "outDir": "build/"
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
     },
-    "exclude": [
-        "node_modules",
-        "build"
-    ]
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ]
 }
