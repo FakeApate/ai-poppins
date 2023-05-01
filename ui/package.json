@@ -5,19 +5,21 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "tsc",
+    "build": "tsc",
     "start": "electron build/main.js"
   },
   "author": "Fake Apate",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^24.1.2",
-    "typescript": "^5.0.4",
+    "@types/ejs": "^3.1.2",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "ejs": "^3.1.9",
+    "electron": "^24.1.2",
     "eslint": "^8.39.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-promise": "^6.1.1"
+    "eslint-plugin-promise": "^6.1.1",
+    "typescript": "^5.0.4"
   }
 }
