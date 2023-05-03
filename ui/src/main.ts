@@ -7,7 +7,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
   })
-  let template = ejs.fileLoader('src/templates/card.ejs')
+  let template = ejs.fileLoader('src/templates/main.ejs')
   let html : string;
   if(typeof template === 'string'){
     html = ejs.render(template,{task});

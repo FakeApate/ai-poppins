@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Task Schema",
+  "type": "object",
+  "required": ["name", "priority", "schedule"],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/data_entry"
+      }
+    },
+    "schedule": {
+      "$ref": "#/$defs/task_schedule"
+    }
+  },
+  "$defs": {
+    "data_entry": {
+      "type": "object",
+      "properties": {
+        "typedef": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "task_schedule": {
+      "type": "object",
+      "properties": {
+        "start_date": {
+          "type": "string",
+          "format": "date-time",
+          "required": true
+        },
+        "due_date": {
+          "type": "string",
+          "format": "date-time",
+          "required": true
+        },
+        "repeat_frequency": {
+          "type": "string",
+          "enum": ["daily", "weekly", "monthly"]
+        },
+        "repeat_days": {
+          "type": "string",
+          "pattern": "^0b[01]+$"
+        }
+      },
+      "description": "The scheduling information for the task",
+      "required": true,
+      "if": {
+        "properties": {
+          "repeat_days": {
+            "not": {
+              "enum": [null]
+            }
+          }
+        }
+      },
+      "then": {
+        "required": ["repeat_frequency"]
+      }
+    }
+  }
+}
