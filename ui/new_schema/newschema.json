@@ -41,19 +41,19 @@
     "task_schedule": {
       "type": "object",
       "properties": {
-        "start_date": {
+        "start_time": {
           "type": "string",
-          "format": "date-time",
+          "format": "time",
           "required": true
         },
-        "due_date": {
+        "end_time": {
           "type": "string",
-          "format": "date-time",
+          "format": "time",
           "required": true
         },
         "repeat_frequency": {
           "type": "string",
-          "enum": ["daily", "weekly", "monthly"]
+          "enum": ["none", "daily", "weekly", "monthly"]
         },
         "repeat_days": {
           "type": "string",

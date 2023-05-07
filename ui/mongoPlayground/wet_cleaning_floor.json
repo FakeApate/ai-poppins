@@ -1,0 +1,12 @@
+{
+  "data": [],
+  "priority": 10,
+  "description": "",
+  "schedule": {
+    "duration": "01:30:00Z",
+    "repeat_days": "0b10",
+    "repeat_frequency": "weekly"
+  },
+  "name": "Wet Cleaning floor",
+  "category": "Cleaning"
+}
