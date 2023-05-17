@@ -1,0 +1,12 @@
+{
+  "name": "Vacuum the Floors",
+  "description": "Clean all floors with a vacuum cleaner.",
+  "category": "Chores",
+  "priority": 8,
+  "data": [],
+  "schedule": {
+    "duration": "01:00:00",
+    "repeat_frequency": "weekly",
+    "repeat_days": "0b0100000"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Clean the bathroom",
+  "description": "Thoroughly clean the bathroom, including sink, toilet, shower, and floor.",
+  "category": "Household chores",
+  "priority": 7,
+  "data": [],
+  "schedule": {
+    "duration": "00:45:00",
+    "repeat_frequency": "monthly",
+    "repeat_days": "0b1"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Dust the furniture",
+  "description": "Dust and wipe down all furniture surfaces in the apartment.",
+  "category": "Household chores",
+  "priority": 6,
+  "data": [],
+  "schedule": {
+    "duration": "00:20:00",
+    "repeat_frequency": "monthly",
+    "repeat_days": "0b1"
+  }
+}

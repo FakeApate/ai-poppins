@@ -29,17 +29,16 @@
     <% if (task.schedule) { %>
     <ul id="card-shedule">
       <li class="card-text">
-        <%= task.schedule.start_date %>
-      </li>
-      <li class="card-text">
-        <%= task.schedule.due_date %>
+        <%= task.schedule.duration %>
       </li>
       <li class="card-text">
         <%= task.schedule.repeat_frequency %>
       </li>
+      <% if (task.schedule.taskDays) { %>
       <li class="card-text">
-        <%= task.schedule.repeat_days %>
+        <%= task.schedule.taskDays %>
       </li>
+      <% } %>
     </ul>
     <hr />
     <% } %>

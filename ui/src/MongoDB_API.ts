@@ -11,7 +11,7 @@ const client = new MongoClient(
 );
 
 async function readRandom(): Promise<
-  | import("g:/imbod/Documents/GitHub/ai-poppins/ui/node_modules/bson/bson").Document
+  | import('bson').Document
   | null
 > {
   try {

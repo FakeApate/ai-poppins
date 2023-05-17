@@ -1,5 +1,3 @@
-import moment from "moment";
-
 export class TaskSchema {
   name: string;
   description?: string;
@@ -23,7 +21,7 @@ export class TaskSchema {
     const task: TaskSchema = {
       name: doc.name,
       priority: doc.priority,
-      schedule: doc.schedule,
+      schedule: TaskSchedule.fromDocument(doc.schedule),
     };
 
     if (doc.description) {
@@ -38,26 +36,6 @@ export class TaskSchema {
       task.data = doc.data;
     }
 
-    // Convert the start_date and due_date fields to Date objects
-    if (doc.schedule.start_date) {
-      task.schedule.start_date = moment(doc.schedule.start_date);
-    }
-
-    if (doc.schedule.due_date) {
-      task.schedule.due_date = moment(doc.schedule.due_date);
-    }
-
-    if (doc.schedule.repeat_frequency) {
-      task.schedule.repeat_frequency = doc.schedule.repeat_frequency;
-    }
-
-    if (doc.schedule.repeat_days) {
-      task.schedule.repeat_days = parseInt(
-        doc.schedule.repeat_days.slice(2),
-        2
-      );
-    }
-
     return task;
   }
 }
@@ -67,11 +45,66 @@ export class DataEntry {
   value?: string;
   [k: string]: unknown;
 }
+enum Days {
+  Sunday,
+  Saturdays,
+  Friday,
+  Thursday,
+  Wednesday,
+  Tuesday,
+  Monday,
+}
 
 export class TaskSchedule {
-  start_date?: moment.Moment;
-  due_date?: moment.Moment;
+  static fromDocument(doc: any): TaskSchedule {
+    const schedule: TaskSchedule = {};
+    if (doc.duration) {
+      let d = new Date(Date.now());
+      const durationParts: number[] = (doc.duration as string).split("Z")[0].split(":").map<number>((value: string, index: number) => {
+        return parseInt(value);
+      });
+      schedule.duration = `${durationParts[0]}h ${durationParts[1]}m ${durationParts[2]}s`;
+    }
+
+    if (doc.repeat_frequency) {
+      schedule.repeat_frequency = doc.repeat_frequency;
+    }
+
+    let taskDays: (Days | undefined)[] | undefined;
+    if (doc.repeat_days) {
+      schedule.repeat_days = parseInt(doc.repeat_days.slice(2), 2);
+      let list: number[] | undefined;
+      if (schedule.repeat_frequency === "weekly") {
+        list = new Array<number>(7).fill(0);
+      }
+      if (schedule.repeat_frequency === "monthly") {
+        list = new Array<number>(32).fill(0);
+      }
+      if (list) {
+        for (let i = list.length; i >= 0; i--) {
+          var res = 1 << i;
+          res = schedule.repeat_days & res;
+          if (res > 0) {
+            list[i] = 1;
+          }
+        }
+        taskDays = list.map<Days | undefined>(
+          (value: number, index: number) => {
+            if (value === 1) return index;
+          }
+        );
+        taskDays = taskDays.filter((value) => {
+          if (value) return value;
+        });
+      }
+    }
+    schedule.taskDays = taskDays as Days[];
+    return schedule;
+  }
+
+  duration?: string;
   repeat_frequency?: "daily" | "weekly" | "monthly";
   repeat_days?: number;
+  taskDays?: Days[];
   [k: string]: unknown;
 }

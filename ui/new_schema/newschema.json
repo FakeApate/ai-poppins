@@ -41,12 +41,7 @@
     "task_schedule": {
       "type": "object",
       "properties": {
-        "start_time": {
-          "type": "string",
-          "format": "time",
-          "required": true
-        },
-        "end_time": {
+        "duration": {
           "type": "string",
           "format": "time",
           "required": true

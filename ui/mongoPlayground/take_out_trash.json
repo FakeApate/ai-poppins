@@ -1,0 +1,12 @@
+{
+  "name": "Take out the trash",
+  "description": "Dispose of all the trash in the apartment.",
+  "category": "Household chores",
+  "priority": 5,
+  "data": [],
+  "schedule": {
+    "duration": "00:10:00",
+    "repeat_frequency": "weekly",
+    "repeat_days": "0b0111111"
+  }
+}
