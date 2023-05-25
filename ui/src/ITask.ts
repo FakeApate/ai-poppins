@@ -60,9 +60,12 @@ export class TaskSchedule {
     const schedule: TaskSchedule = {};
     if (doc.duration) {
       let d = new Date(Date.now());
-      const durationParts: number[] = (doc.duration as string).split("Z")[0].split(":").map<number>((value: string, index: number) => {
-        return parseInt(value);
-      });
+      const durationParts: number[] = (doc.duration as string)
+        .split("Z")[0]
+        .split(":")
+        .map<number>((value: string, index: number) => {
+          return parseInt(value);
+        });
       schedule.duration = `${durationParts[0]}h ${durationParts[1]}m ${durationParts[2]}s`;
     }
 
@@ -98,13 +101,21 @@ export class TaskSchedule {
         });
       }
     }
-    schedule.taskDays = taskDays as Days[];
+    if (schedule.repeat_frequency === "weekly") {
+      let td = (taskDays as Days[]).sort((a, b) => b - a);
+      var tds = td.map<string>((value: Days) => {
+        return Days[value];
+      });
+      schedule.taskDays = tds.reduce((prev: string, curr: string) => {
+        return `${prev}, ${curr}`;
+      });
+    }
     return schedule;
   }
 
   duration?: string;
   repeat_frequency?: "daily" | "weekly" | "monthly";
   repeat_days?: number;
-  taskDays?: Days[];
+  taskDays?: string;
   [k: string]: unknown;
 }
