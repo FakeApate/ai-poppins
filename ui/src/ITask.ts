@@ -4,7 +4,7 @@ export class TaskSchema {
   category?: string;
   priority: number;
   data?: DataEntry[];
-  schedule: TaskSchedule;
+  schedule?: TaskSchedule;
   [k: string]: unknown;
 
   constructor(task: TaskSchema) {
@@ -56,8 +56,12 @@ enum Days {
 }
 
 export class TaskSchedule {
-  static fromDocument(doc: any): TaskSchedule {
+  static fromDocument(doc: any): TaskSchedule | undefined {
     const schedule: TaskSchedule = {};
+    if(!doc){
+      return undefined;
+    }
+
     if (doc.duration) {
       let d = new Date(Date.now());
       const durationParts: number[] = (doc.duration as string)
@@ -97,11 +101,18 @@ export class TaskSchedule {
           }
         );
         taskDays = taskDays.filter((value) => {
-          if (value) return value;
+          if (value != undefined) 
+          {
+            return value;
+          }
         });
       }
     }
     if (schedule.repeat_frequency === "weekly") {
+      if(taskDays?.length === 0){
+        schedule.taskDays = Days[0].toString();
+        return schedule;
+      }
       let td = (taskDays as Days[]).sort((a, b) => b - a);
       var tds = td.map<string>((value: Days) => {
         return Days[value];

@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=yes"
+    />
+    <title>IDCard-Task</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <script>
+      function setViewport() {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        var viewport = document.querySelector('meta[name="viewport"]');
+        viewport.setAttribute(
+          "content",
+          "width=" + width + ", height=" + height + ", initial-scale=1"
+        );
+      }
+      window.addEventListener("load", setViewport);
+      window.addEventListener("resize", setViewport);
+    </script>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes" />
-  <title>IDCard-Task</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
-  <script>
-    // set the viewport to the current window size
-    function setViewport() {
-      var width = window.innerWidth;
-      var height = window.innerHeight;
-      var viewport = document.querySelector('meta[name="viewport"]');
-      viewport.setAttribute('content', 'width=' + width + ', height=' + height + ', initial-scale=1');
-    }
+  <body>
+    <div
+      class="main-carousel"
+      data-flickity='{"freeScroll": true, "contain": true, "prevNextButtons": false, "pageDots": false }'
+    >
+      <% tasks.forEach(task => { %>
+      <div class="carousel-cell" style="width: 100vw; height: auto; margin-top: 20px; margin-bottom: 20px;">
+        <%- include('partial/card', { task: task}); %>
+      </div>
+      <% }) %>
+    </div>
 
-    // call setViewport on page load and window resize events
-    window.addEventListener('load', setViewport);
-    window.addEventListener('resize', setViewport);
-  </script>
-</head>
-
-<body style="padding-top: 5vh;">
-  <%- include('partial/card', { task: task}); %>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  </body>
 </html>

@@ -12,24 +12,28 @@ const createWindow = () => {
 
   const dirpath = "tasks/";
   let dir = fs.readdirSync(dirpath);
+  
   dir = dir.filter((value: string) => {
-      return value.includes("json") ? value: null;
+    return value.includes("json") ? value : null;
   });
-  let filename = dir[Math.round(Math.random()* (dir.length-1))];
-  const fileDoc = fs.readFileSync(dirpath + filename).toString();
-  const task = TaskSchema.fromDocument(JSON.parse(fileDoc));
+
+  let tasks = dir.map<TaskSchema>((value) => {
+    const fileDoc = fs.readFileSync(dirpath + value).toString();
+    return TaskSchema.fromDocument(JSON.parse(fileDoc));
+  });
+
   let template = ejs.fileLoader("src/templates/main.ejs");
   let html: string;
   if (typeof template === "string") {
     html = ejs.render(
       template,
-      { task },
+      { tasks },
       { filename: "src/templates/main.ejs" }
     );
   } else {
     html = ejs.render(
       template.toString(),
-      { task },
+      { tasks },
       { filename: "src/templates/main.ejs" }
     );
   }
