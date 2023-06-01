@@ -1,1 +1,12 @@
-{"data":[],"priority":10,"description":"","schedule":{"duration":"02:00:00Z","repeat_days":"0b100100","repeat_frequency":"weekly"},"name":"Buying Groceries","category":"Cooking"}
+{
+  "data": [],
+  "priority": 10,
+  "description": "",
+  "schedule": {
+    "duration": "02:00:00Z",
+    "repeat_days": "0b100100",
+    "repeat_frequency": "weekly"
+  },
+  "name": "Buying Groceries",
+  "category": "Cooking"
+}

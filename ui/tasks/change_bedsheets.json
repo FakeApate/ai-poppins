@@ -6,7 +6,7 @@
   "data": [],
   "schedule": {
     "duration": "00:45:00",
-    "repeat_frequency": "biweekly",
+    "repeat_frequency": "weekly",
     "repeat_days": "0b01000010"
   }
 }
