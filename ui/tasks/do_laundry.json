@@ -1,0 +1,12 @@
+{
+  "name": "Do Laundry",
+  "description": "Wash, dry, and fold clothes.",
+  "category": "Chores",
+  "priority": 9,
+  "data": [],
+  "schedule": {
+    "duration": "02:00:00Z",
+    "repeat_frequency": "weekly",
+    "repeat_days": "0b0100000"
+  }
+}

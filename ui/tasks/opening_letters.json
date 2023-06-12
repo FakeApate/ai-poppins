@@ -1,0 +1,12 @@
+{
+  "name": "Open Letters / Pay Bills",
+  "description": "Open all letters and pay the bills",
+  "category": "Finance",
+  "priority": 7,
+  "data": [],
+  "task_schedule": {
+    "duration": "01:00:00Z",
+    "repeat_frequency": "none",
+    "repeat_days": "0b00000000"
+  }
+}

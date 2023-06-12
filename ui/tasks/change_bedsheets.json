@@ -1,0 +1,12 @@
+{
+  "name": "Change bedsheets",
+  "description": "Strip and wash current bed sheets, replace with clean ones",
+  "category": "Home maintenance",
+  "priority": 5,
+  "data": [],
+  "schedule": {
+    "duration": "00:45:00",
+    "repeat_frequency": "weekly",
+    "repeat_days": "0b01000010"
+  }
+}

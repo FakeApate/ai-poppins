@@ -1,0 +1,12 @@
+{
+  "data": [],
+  "priority": 10,
+  "description": "",
+  "schedule": {
+    "duration": "03:00:00Z",
+    "repeat_days": "0b100000",
+    "repeat_frequency": "weekly"
+  },
+  "name": "Traveling to/from Zurich",
+  "category": "Work"
+}

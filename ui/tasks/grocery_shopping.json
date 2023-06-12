@@ -1,0 +1,12 @@
+{
+  "name": "Grocery Shopping",
+  "description": "Buy groceries for the week.",
+  "category": "Errands",
+  "priority": 7,
+  "data": [],
+  "schedule": {
+    "duration": "02:00:00",
+    "repeat_frequency": "weekly",
+    "repeat_days": "0b0010000"
+  }
+}

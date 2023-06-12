@@ -1,0 +1,12 @@
+{
+  "name": "Meal Prep",
+  "description": "Prepare meals for the week ahead.",
+  "category": "Cooking",
+  "priority": 8,
+  "data": [],
+  "schedule": {
+    "duration": "03:00:00",
+    "repeat_frequency": "weekly",
+    "repeat_days": "0b0001000"
+  }
+}

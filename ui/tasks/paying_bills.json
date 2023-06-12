@@ -1,0 +1,12 @@
+{
+  "data": [],
+  "priority": 10,
+  "description": "",
+  "schedule": {
+    "duration": "02:00:00Z",
+    "repeat_days": "0b1000000100000000001",
+    "repeat_frequency": "monthly"
+  },
+  "name": "Paying Bills",
+  "category": "Social"
+}
